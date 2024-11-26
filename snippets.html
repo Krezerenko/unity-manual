@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полезные сниппеты кода для Unity</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>Полезные сниппеты кода для Unity</h1>
+    <nav>
+        <div class="navbar">
+            <div class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#ffffff">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                </svg>
+            </div>
+            <ul>
+                <li><a href="index.html">Вступление</a></li>
+                <li><a href="guide.html">Гайд по разработке</a></li>
+                <li><a href="snippets.html">Сниппеты кода</a></li>
+                <li><a href="documentation.html">Документация</a></li>
+                <li><a href="feedback.html">Обратная связь</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
+    <h2>Пример кода для перемещения объекта</h2>
+    <pre class="code-snippet-1"><code>
+using UnityEngine;
+
+public class MoveObject : MonoBehaviour
+{
+    public float speed = 5f;
+
+    void Update()
+    {
+        float move = Input.GetAxis("Horizontal");
+        transform.Translate(move * speed * Time.deltaTime, 0, 0);
+    }
+}
+    </code></pre>
+    <p>Этот скрипт позволяет перемещать объект по оси X при нажатии клавиш стрелок или клавиш A/D.</p>
+
+    <h2>Пример кода для вращения объекта</h2>
+    <pre class="code-snippet-1"><code>
+using UnityEngine;
+
+public class RotateObject : MonoBehaviour
+{
+    public float rotationSpeed = 50f;
+
+    void Update()
+    {
+        float rotation = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
+        transform.Rotate(0, rotation, 0);
+    }
+}
+    </code></pre>
+    <p>Этот код будет вращать объект по оси Y в зависимости от ввода с клавиш стрелок или A/D.</p>
+</main>
+<footer>
+    <p>Комисарик Михаил</p>
+</footer>
+</body>
+</html>

@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вступление в Unity</title>
+    <title>Обратная связь</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <header>
-    <h1>Добро пожаловать!</h1>
+    <h1>Обратная связь</h1>
     <nav>
         <div class="navbar">
             <div class="btn">
@@ -27,11 +27,19 @@
     </nav>
 </header>
 <main>
-    <section>
-        <h2>Что такое Unity?</h2>
-        <p>Unity — это мощный инструмент для создания игр, который поддерживает разработку как для 2D, так и для 3D проектов. Здесь мы расскажем, как начать свой путь в мире разработки игр!</p>
-        <p>Перейдите по разделам в меню, чтобы узнать больше о создании игр с Unity.</p>
-    </section>
+    <h2>Ваши отзывы важны для нас!</h2>
+    <form action="#" method="POST">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Сообщение:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Отправить</button>
+    </form>
 </main>
 <footer>
     <p>Комисарик Михаил</p>

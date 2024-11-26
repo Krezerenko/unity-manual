@@ -1,14 +1,17 @@
 html
 {
-    color: #222;
+    --exp-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --background: rgb(18 18 18);
+    --buttons: rgb(42 42 42);
+    --divs: rgb(51 51 51);
+    --light-grey: rgb(61 67 61);
+    --text: rgb(234 234 234);
+    --link: rgb(74 144 226);
+    --link-pressed: rgb(59 189 154);
+
+    background-color: var(--background);
     font-size: 1em;
     line-height: 1.4;
-}
-
-::selection
-{
-    background: #b3d4fc;
-    text-shadow: none;
 }
 
 audio,
@@ -21,95 +24,255 @@ video
     vertical-align: middle;
 }
 
-fieldset
+body
 {
-    border: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
-@media only screen and (min-width: 35em)
+h1
 {
-    /* Style adjustments for viewports that meet the condition */
+    display: none;
+    font-size: 1.5rem;
 }
 
-@media print,
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 1.25dppx),
-(min-resolution: 120dpi)
+header
 {
-    /* Style adjustments for high resolution devices */
+    background-color: var(--background);
+    color: white;
+    padding: 10px 80px;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
-@media print
+nav
 {
-    *,
-    *::before,
-    *::after
-    {
-        background: #fff !important;
-        color: #000 !important;
-        /* Black prints faster */
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
+    --dropdown-width: 60px;
 
-    a,
-    a:visited
-    {
-        text-decoration: underline;
-    }
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 
-    a[href]::after
-    {
-        content: " (" attr(href) ")";
-    }
+nav .navbar
+{
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: var(--dropdown-width);
+    height: var(--dropdown-width);
+    filter: drop-shadow(0px 0px 2px var(--light-grey));
 
-    abbr[title]::after
-    {
-        content: " (" attr(title) ")";
-    }
+    transition: 0.5s var(--exp-ease);
+    transition-property: width, height;
+}
 
-    /*
-     * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
-     */
-    a[href^="#"]::after,
-    a[href^="javascript:"]::after
-    {
-        content: "";
-    }
+nav .navbar:hover
+{
+    width: 200px;
+    height: 300px;
+}
 
-    pre
-    {
-        white-space: pre-wrap !important;
-    }
+nav .navbar .btn
+{
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 60px;
+    background-color: var(--background);
+    border-radius: 10px;
 
-    pre,
-    blockquote
-    {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
+    transition: 0.5s var(--exp-ease);
+    transition-property: background-color, visibility;
+}
 
-    tr,
-    img
-    {
-        page-break-inside: avoid;
-    }
+nav .navbar:hover .btn
+{
+    background-color: rgba(var(--light-grey) 0);
+    visibility: hidden;
+}
 
-    p,
-    h2,
-    h3
-    {
-        orphans: 3;
-        widows: 3;
-    }
+nav .navbar .btn svg
+{
+    width: 100%;
+    height: 100%;
+}
 
-    h2,
-    h3
+nav .navbar:hover .btn svg
+{
+    visibility: hidden;
+}
+
+nav .navbar ul
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+    margin: 0;
+    background-color: var(--background);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    opacity: 0;
+    overflow: hidden;
+
+    transition: background-color 0.5s var(--exp-ease), opacity 0.3s var(--exp-ease);
+}
+
+nav .navbar:hover ul
+{
+    background-color: var(--light-grey);
+    opacity: 100%;
+}
+
+nav .navbar ul li
+{
+    flex-basis: 0;
+    flex-grow: 1;
+    /*padding: 10px;*/
+    border-radius: 10px;
+    background-color: var(--buttons);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .navbar ul li a
+{
+    width: 100%;
+    height: 100%;
+    color: var(--text);
+    text-decoration: none;
+    /*text-transform: uppercase;*/
+    font-weight: 600;
+    font-size: 1rem;
+    text-wrap: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background-color: red;*/
+}
+
+footer
+{
+    background-color: var(--divs);
+    color: var(--text);
+    text-align: center;
+    padding: 10px;
+    /*width: 100%;*/
+}
+
+main
+{
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.code-snippet-1
+{
+    /*background-color: red;*/
+    overflow: scroll;
+    scrollbar-width: none;
+    /*max-width: 100%;*/
+    /*overflow: hidden;*/
+}
+
+@media (min-width: 480px)
+{
+    header
     {
-        page-break-after: avoid;
+        background-color: var(--divs);
+        min-height: 70px;
+        margin-bottom: 0;
+    }
+    h1
+    {
+        display: inline;
     }
 }
 
+@media (min-width: 767px)
+{
+    header
+    {
+        padding: 10px 15px;
+    }
+    h1
+    {
+        font-size: 2rem;
+    }
+    nav
+    {
+        position: static;
+    }
+    nav .navbar
+    {
+        position: static;
+        width: 100%;
+        height: 100%;
+        transition: none, none;
+    }
+    nav .navbar:hover
+    {
+        width: 100%;
+        height: 100%;
+    }
+    nav .navbar .btn
+    {
+        visibility: hidden;
+        opacity: 0;
+    }
+    nav .navbar ul
+    {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        /*padding: 5px;*/
+        /*margin: 0;*/
+        background-color: var(--divs);
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        opacity: 100%;
+        overflow: hidden;
+
+        transition: none, none;
+    }
+    nav .navbar:hover ul
+    {
+        background-color: var(--divs);
+        opacity: 100%;
+    }
+    nav .navbar ul li
+    {
+        /*padding: 10px;*/
+        border-radius: 0;
+        background-color: var(--light-grey);
+
+        transition: background-color 0.5s var(--exp-ease);
+    }
+    nav .navbar ul li:hover
+    {
+        background-color: var(--buttons);
+    }
+    nav .navbar ul li a
+    {
+        padding: 10px;
+    }
+}
