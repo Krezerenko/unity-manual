@@ -10,6 +10,7 @@
 <header>
     <h1>Полезные сниппеты кода для Unity</h1>
     <nav>
+        <a href="index.html"><img src="favicon.webp" alt="Логотип сайта"></a>
         <div class="navbar">
             <div class="btn">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#ffffff">
@@ -21,15 +22,14 @@
                 <li><a href="guide.html">Гайд по разработке</a></li>
                 <li><a href="snippets.html">Сниппеты кода</a></li>
                 <li><a href="documentation.html">Документация</a></li>
-                <li><a href="feedback.html">Обратная связь</a></li>
+                <!--                <li><a href="feedback.html">Обратная связь</a></li>-->
             </ul>
         </div>
     </nav>
 </header>
 <main>
     <h2>Пример кода для перемещения объекта</h2>
-    <pre class="code-snippet-1"><code>
-using UnityEngine;
+    <pre class="code-snippet-1"><code>using UnityEngine;
 
 public class MoveObject : MonoBehaviour
 {
@@ -40,13 +40,11 @@ public class MoveObject : MonoBehaviour
         float move = Input.GetAxis("Horizontal");
         transform.Translate(move * speed * Time.deltaTime, 0, 0);
     }
-}
-    </code></pre>
+}</code></pre>
     <p>Этот скрипт позволяет перемещать объект по оси X при нажатии клавиш стрелок или клавиш A/D.</p>
 
     <h2>Пример кода для вращения объекта</h2>
-    <pre class="code-snippet-1"><code>
-using UnityEngine;
+    <pre class="code-snippet-1"><code>using UnityEngine;
 
 public class RotateObject : MonoBehaviour
 {
@@ -57,12 +55,12 @@ public class RotateObject : MonoBehaviour
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
         transform.Rotate(0, rotation, 0);
     }
-}
-    </code></pre>
+}</code></pre>
     <p>Этот код будет вращать объект по оси Y в зависимости от ввода с клавиш стрелок или A/D.</p>
 </main>
 <footer>
-    <p>Комисарик Михаил</p>
+    <a href="feedback.html">Помогите улучшить сайт!</a>
+    <p>® Unity, логотип Unity и все связанные с ним названия, логотипы, названия продуктов и услуг, дизайн и лозунги являются зарегистрированными товарными знаками Unity Technologies или ее дочерних компаний.</p>
 </footer>
 </body>
 </html>
