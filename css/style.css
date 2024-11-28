@@ -90,145 +90,6 @@ header::after
     background-image: linear-gradient(to right, rgba(var(--buttons-rgb), 0), rgba(var(--buttons-rgb), 1) 20%, rgba(var(--buttons-rgb), 1) 80%, rgba(var(--buttons-rgb), 0));
 }
 
-nav
-{
-    --dropdown-width: 60px;
-
-    position: fixed;
-    left: 0;
-    top: 0;
-}
-
-nav>a
-{
-    position: absolute;
-    left: 15px;
-    top: 15px;
-    width: 60px;
-}
-
-nav>a img
-{
-    background-color: var(--background);
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
-    transform: scale(1, 1);
-
-    transition: transform 0.5s var(--exp-ease);
-}
-
-nav>a img:hover
-{
-    transform: scale(1.1, 1.1);
-}
-
-nav .navbar
-{
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    width: var(--dropdown-width);
-    height: var(--dropdown-width);
-    filter: drop-shadow(0px 0px 2px var(--popups));
-
-    transition: 0.5s var(--exp-ease);
-    transition-property: width, height;
-}
-
-nav .navbar:hover
-{
-    width: 200px;
-    height: 300px;
-}
-
-nav .navbar .btn
-{
-    visibility: visible;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    width: 60px;
-    background-color: var(--background);
-    border-radius: 10px;
-
-    transition: 0.5s var(--exp-ease);
-    transition-property: background-color, visibility;
-}
-
-nav .navbar:hover .btn
-{
-    background-color: rgba(var(--popups) 0);
-    visibility: hidden;
-}
-
-nav .navbar .btn svg
-{
-    width: 100%;
-    height: 100%;
-}
-
-nav .navbar:hover .btn svg
-{
-    visibility: hidden;
-}
-
-nav .navbar ul
-{
-    position: absolute;
-    right: 0;
-    top: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 5px;
-    margin: 0;
-    background-color: var(--background);
-    width: 100%;
-    height: 100%;
-    /*border-radius: 10px;*/
-    opacity: 0;
-    overflow: hidden;
-
-    transition: background-color 0.5s var(--exp-ease), opacity 0.3s var(--exp-ease);
-}
-
-nav .navbar:hover ul
-{
-    background-color: var(--popups);
-    opacity: 100%;
-}
-
-nav .navbar ul li
-{
-    flex-basis: 0;
-    flex-grow: 1;
-    /*padding: 10px;*/
-    /*border-radius: 10px;*/
-    background-color: var(--buttons);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-nav .navbar ul li a
-{
-    width: 100%;
-    height: 100%;
-    color: var(--text);
-    text-decoration: none;
-    /*text-transform: uppercase;*/
-    font-weight: 600;
-    font-size: 1.2rem;
-    text-wrap: nowrap;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /*background-color: red;*/
-}
-
 footer
 {
     position: relative;
@@ -268,7 +129,7 @@ main
 {
     flex-grow: 1;
     padding: 20px;
-    margin-top: 60px;
+    margin-top: 80px;
 }
 
 ul.gallery
@@ -301,7 +162,8 @@ ul.gallery li img
     background-color: var(--buttons);
     width: 100%;
     height: 40vh;
-    padding: 30px 0;
+    /*padding-top: 15px;*/
+    /*padding-left: 0;*/
 }
 
 .code-snippet-1
@@ -350,70 +212,9 @@ ul.gallery li img
     {
         font-size: 2rem;
     }
-    nav
-    {
-        position: static;
-    }
-    nav .navbar
-    {
-        position: static;
-        width: 100%;
-        height: 100%;
-        transition: none, none;
-    }
-    nav .navbar:hover
-    {
-        width: 100%;
-        height: 100%;
-    }
-    nav .navbar .btn
-    {
-        visibility: hidden;
-        opacity: 0;
-    }
-    nav .navbar ul
-    {
-        position: static;
-        display: flex;
-        flex-direction: row;
-        gap: 5px;
-        /*padding: 5px;*/
-        /*margin: 0;*/
-        background-color: var(--divs);
-        box-sizing: border-box;
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-        opacity: 100%;
-        overflow: hidden;
-
-        transition: none, none;
-    }
-    nav .navbar:hover ul
-    {
-        background-color: var(--divs);
-        opacity: 100%;
-    }
-    nav .navbar ul li
-    {
-        /*padding: 10px;*/
-        border-radius: 0;
-        background-color: var(--popups);
-
-        transition: background-color 0.5s var(--exp-ease);
-    }
-    nav .navbar ul li:hover
-    {
-        background-color: var(--buttons);
-    }
-    nav .navbar ul li a
-    {
-        padding: 10px;
-    }
-
     main
     {
-        margin-top: 80px;
+        margin-top: 160px;
     }
     ul.gallery
     {
@@ -429,4 +230,10 @@ ul.gallery li img
         width: auto;
         height: 100%;
     }
+
+    /*#introduction ul.gallery*/
+    /*{*/
+    /*    padding-top: 0;*/
+    /*    padding-left: 15px;*/
+    /*}*/
 }

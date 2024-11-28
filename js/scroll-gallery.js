@@ -25,8 +25,9 @@ function initializeScroll()
 
 function loopScroll()
 {
-    let width = this.scrollWidth;
-    let height = this.scrollHeight;
+    let gap = parseInt(this.style.getPropertyValue("gap"));
+    let width = this.scrollWidth + gap;
+    let height = this.scrollHeight + gap;
     if (this.scrollLeft < width / 4)
     {
         this.scrollLeft += width / 2;
@@ -51,6 +52,6 @@ function autoScroll()
     {
         gallery.scrollLeft += scrollSpeed * deltaTime;
         gallery.scrollTop += scrollSpeed * deltaTime;
-        loopScroll.call(gallery);
+        // loopScroll.call(gallery);
     }
 }

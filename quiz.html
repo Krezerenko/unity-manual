@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Документация по Unity</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <script src="js/quiz.js"></script>
+</head>
+<body>
+<header>
+    <h1>Документация по Unity</h1>
+    <nav>
+        <a href="index.html"><img src="favicon.webp" alt="Логотип сайта"></a>
+        <div class="navbar">
+            <div class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#ffffff">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                </svg>
+            </div>
+            <ul>
+                <li><a href="index.html">Вступление</a></li>
+                <li><a href="guide.html">Гайд по разработке</a></li>
+                <li><a href="snippets.html">Сниппеты кода</a></li>
+                <li><a href="quiz.html">Викторины</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="quiz-container">
+        <h2>Викторина по Unity</h2>
+        <form id="quiz-form" data-questions-amount="5">
+            <div class="question" data-answer="c">
+                <p>1. На каком языке пишутся скрипты для Unity?</p>
+                <div class="answers">
+                    <label><input type="radio" name="q1" value="a"> Java</label>
+                    <label><input type="radio" name="q1" value="b"> Python</label>
+                    <label><input type="radio" name="q1" value="c"> C#</label>
+                    <label><input type="radio" name="q1" value="d"> C++</label>
+                </div>
+            </div>
+            <div class="question" data-answer="c">
+                <p>2. На каком языке пишутся скрипты для Unity?</p>
+                <div class="answers">
+                    <label><input type="radio" name="q2" value="a"> Java</label>
+                    <label><input type="radio" name="q2" value="b"> Python</label>
+                    <label><input type="radio" name="q2" value="c"> C#</label>
+                    <label><input type="radio" name="q2" value="d"> C++</label>
+                </div>
+            </div>
+            <div class="question" data-answer="c">
+                <p>3. На каком языке пишутся скрипты для Unity?</p>
+                <div class="answers">
+                    <label><input type="radio" name="q3" value="a"> Java</label>
+                    <label><input type="radio" name="q3" value="b"> Python</label>
+                    <label><input type="radio" name="q3" value="c"> C#</label>
+                    <label><input type="radio" name="q3" value="d"> C++</label>
+                </div>
+            </div>
+            <div class="question" data-answer="c">
+                <p>4. На каком языке пишутся скрипты для Unity?</p>
+                <div class="answers">
+                    <label><input type="radio" name="q4" value="a"> Java</label>
+                    <label><input type="radio" name="q4" value="b"> Python</label>
+                    <label><input type="radio" name="q4" value="c"> C#</label>
+                    <label><input type="radio" name="q4" value="d"> C++</label>
+                </div>
+            </div>
+            <div class="question" data-answer="c">
+                <p>5. На каком языке пишутся скрипты для Unity?</p>
+                <div class="answers">
+                    <label><input type="radio" name="q5" value="a"> Java</label>
+                    <label><input type="radio" name="q5" value="b"> Python</label>
+                    <label><input type="radio" name="q5" value="c"> C#</label>
+                    <label><input type="radio" name="q5" value="d"> C++</label>
+                </div>
+            </div>
+
+            <button type="button" class="btn" onclick="submitQuiz.call(this)">Ответить</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+</main>
+<footer>
+    <a href="feedback.html">Помогите улучшить сайт!</a>
+    <p>® Unity, логотип Unity и все связанные с ним названия, логотипы, названия продуктов и услуг, дизайн и лозунги являются зарегистрированными товарными знаками Unity Technologies или ее дочерних компаний.</p>
+</footer>
+</body>
+</html>
