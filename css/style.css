@@ -3,11 +3,12 @@ html
     --exp-ease: cubic-bezier(0.16, 1, 0.3, 1);
     --background: rgb(18 18 18);
     --buttons: rgb(42 42 42);
+    --buttons-rgb: 42, 42, 42;
     --divs: rgb(51 51 51);
-    --light-grey: rgb(61 67 61);
+    --popups: rgb(61 67 61);
     --text: rgb(234 234 234);
-    --link: rgb(74 144 226);
-    --link-pressed: rgb(59 189 154);
+    --link: rgb(94 144 226);
+    --link-pressed: rgb(180 120 171);
 
     background-color: var(--background);
     font-size: 1em;
@@ -22,6 +23,22 @@ svg,
 video
 {
     vertical-align: middle;
+}
+
+a
+{
+    color: var(--link);
+    font-weight: 700;
+}
+
+a:visited
+{
+    color: var(--link-pressed);
+}
+
+ul
+{
+    list-style: none;
 }
 
 body
@@ -42,24 +59,68 @@ h1
 {
     display: none;
     font-size: 1.5rem;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 header
 {
+    position: fixed;
+    z-index: 10;
     background-color: var(--background);
     color: white;
     padding: 10px 80px;
     margin-bottom: 30px;
     text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+header::after
+{
+    display: none;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -5;
+    width: 100%;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(var(--buttons-rgb), 0), rgba(var(--buttons-rgb), 1) 20%, rgba(var(--buttons-rgb), 1) 80%, rgba(var(--buttons-rgb), 0));
 }
 
 nav
 {
     --dropdown-width: 60px;
 
-    position: absolute;
-    right: 0;
+    position: fixed;
+    left: 0;
     top: 0;
+}
+
+nav>a
+{
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    width: 60px;
+}
+
+nav>a img
+{
+    background-color: var(--background);
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    transform: scale(1, 1);
+
+    transition: transform 0.5s var(--exp-ease);
+}
+
+nav>a img:hover
+{
+    transform: scale(1.1, 1.1);
 }
 
 nav .navbar
@@ -69,7 +130,7 @@ nav .navbar
     right: 15px;
     width: var(--dropdown-width);
     height: var(--dropdown-width);
-    filter: drop-shadow(0px 0px 2px var(--light-grey));
+    filter: drop-shadow(0px 0px 2px var(--popups));
 
     transition: 0.5s var(--exp-ease);
     transition-property: width, height;
@@ -98,7 +159,7 @@ nav .navbar .btn
 
 nav .navbar:hover .btn
 {
-    background-color: rgba(var(--light-grey) 0);
+    background-color: rgba(var(--popups) 0);
     visibility: hidden;
 }
 
@@ -127,7 +188,7 @@ nav .navbar ul
     background-color: var(--background);
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     opacity: 0;
     overflow: hidden;
 
@@ -136,7 +197,7 @@ nav .navbar ul
 
 nav .navbar:hover ul
 {
-    background-color: var(--light-grey);
+    background-color: var(--popups);
     opacity: 100%;
 }
 
@@ -145,7 +206,7 @@ nav .navbar ul li
     flex-basis: 0;
     flex-grow: 1;
     /*padding: 10px;*/
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     background-color: var(--buttons);
     display: flex;
     justify-content: center;
@@ -160,7 +221,7 @@ nav .navbar ul li a
     text-decoration: none;
     /*text-transform: uppercase;*/
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-wrap: nowrap;
     display: flex;
     justify-content: center;
@@ -170,17 +231,77 @@ nav .navbar ul li a
 
 footer
 {
-    background-color: var(--divs);
+    position: relative;
+    background-color: var(--background);
     color: var(--text);
+    font-size: 0.7rem;
     text-align: center;
-    padding: 10px;
-    /*width: 100%;*/
+    padding: 10px 5%;
+    box-sizing: border-box;
+    width: 100%;
+}
+footer::before
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(var(--buttons-rgb), 0), rgba(var(--buttons-rgb), 1) 20%, rgba(var(--buttons-rgb), 1) 80%, rgba(var(--buttons-rgb), 0));
+}
+footer a
+{
+    text-decoration: none;
+    color: rgb(150 150 150);
+}
+footer a:visited
+{
+    color: rgb(150 150 150);
+}
+footer a:hover
+{
+    color: var(--text);
 }
 
 main
 {
     flex-grow: 1;
     padding: 20px;
+    margin-top: 60px;
+}
+
+ul.gallery
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    gap: 15px;
+}
+
+ul.gallery li
+{
+    width: 95%;
+}
+ul.gallery li img
+{
+    width: 100%;
+}
+
+.scrollable
+{
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+#introduction ul.gallery
+{
+    background-color: var(--buttons);
+    width: 100%;
+    height: 40vh;
+    padding: 30px 0;
 }
 
 .code-snippet-1
@@ -188,6 +309,10 @@ main
     /*background-color: red;*/
     overflow: scroll;
     scrollbar-width: none;
+    background-color: var(--buttons);
+    padding: 10px;
+    border-radius: 10px;
+    border: 5px solid var(--popups);
     /*max-width: 100%;*/
     /*overflow: hidden;*/
 }
@@ -196,13 +321,21 @@ main
 {
     header
     {
-        background-color: var(--divs);
+        /*background-color: var(--divs);*/
         min-height: 70px;
         margin-bottom: 0;
     }
+    header::after
+    {
+        display: block;
+    }
     h1
     {
-        display: inline;
+        display: flex;
+    }
+    footer
+    {
+        font-size: 1rem;
     }
 }
 
@@ -210,6 +343,7 @@ main
 {
     header
     {
+        /*position: fixed;*/
         padding: 10px 15px;
     }
     h1
@@ -246,6 +380,7 @@ main
         /*padding: 5px;*/
         /*margin: 0;*/
         background-color: var(--divs);
+        box-sizing: border-box;
         width: 100%;
         height: 100%;
         border-radius: 0;
@@ -263,7 +398,7 @@ main
     {
         /*padding: 10px;*/
         border-radius: 0;
-        background-color: var(--light-grey);
+        background-color: var(--popups);
 
         transition: background-color 0.5s var(--exp-ease);
     }
@@ -274,5 +409,24 @@ main
     nav .navbar ul li a
     {
         padding: 10px;
+    }
+
+    main
+    {
+        margin-top: 80px;
+    }
+    ul.gallery
+    {
+        flex-direction: row;
+    }
+    ul.gallery li
+    {
+        width: auto;
+        height: 95%;
+    }
+    ul.gallery li img
+    {
+        width: auto;
+        height: 100%;
     }
 }
