@@ -2,14 +2,14 @@ nav
 {
     --dropdown-width: 60px;
 
-    position: fixed;
-    left: 0;
-    top: 0;
+    position: relative;
+    /*left: 0;*/
+    /*top: 0;*/
 }
 
 nav>a
 {
-    position: absolute;
+    position: fixed;
     left: 15px;
     top: 15px;
     width: 60px;
@@ -137,12 +137,23 @@ nav .navbar ul li a
     /*background-color: red;*/
 }
 
+h2
+{
+    position: relative;
+}
+
+.anchor
+{
+    position: absolute;
+    top: 80px;
+}
+
 @media (min-width: 767px)
 {
-    nav
-    {
-        position: static;
-    }
+    /*nav*/
+    /*{*/
+    /*    position: static;*/
+    /*}*/
     nav .navbar
     {
         position: static;
@@ -198,5 +209,10 @@ nav .navbar ul li a
     nav .navbar ul li a
     {
         padding: 10px;
+    }
+
+    .anchor
+    {
+        top: 160px;
     }
 }

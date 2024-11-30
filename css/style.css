@@ -2,13 +2,14 @@ html
 {
     --exp-ease: cubic-bezier(0.16, 1, 0.3, 1);
     --background: rgb(18 18 18);
-    --buttons: rgb(42 42 42);
-    --buttons-rgb: 42, 42, 42;
+    --buttons: rgb(30 30 30);
+    --buttons-rgb: 30, 30, 30;
     --divs: rgb(51 51 51);
     --popups: rgb(61 67 61);
     --text: rgb(234 234 234);
     --link: rgb(94 144 226);
     --link-pressed: rgb(180 120 171);
+    --text-accent: rgb(118 199 192);
 
     background-color: var(--background);
     font-size: 1em;
@@ -77,17 +78,21 @@ header
     width: 100%;
 }
 
-header::after
+header::after, footer::before
 {
-    display: none;
     content: "";
     position: absolute;
-    bottom: 0;
     left: 0;
-    z-index: -5;
     width: 100%;
     height: 2px;
     background-image: linear-gradient(to right, rgba(var(--buttons-rgb), 0), rgba(var(--buttons-rgb), 1) 20%, rgba(var(--buttons-rgb), 1) 80%, rgba(var(--buttons-rgb), 0));
+}
+
+header::after
+{
+    display: none;
+    bottom: 0;
+    z-index: -5;
 }
 
 footer
@@ -101,25 +106,23 @@ footer
     box-sizing: border-box;
     width: 100%;
 }
+
 footer::before
 {
-    content: "";
-    position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-image: linear-gradient(to right, rgba(var(--buttons-rgb), 0), rgba(var(--buttons-rgb), 1) 20%, rgba(var(--buttons-rgb), 1) 80%, rgba(var(--buttons-rgb), 0));
 }
+
 footer a
 {
     text-decoration: none;
     color: rgb(150 150 150);
 }
+
 footer a:visited
 {
     color: rgb(150 150 150);
 }
+
 footer a:hover
 {
     color: var(--text);
@@ -146,6 +149,7 @@ ul.gallery li
 {
     width: 95%;
 }
+
 ul.gallery li img
 {
     width: 100%;
@@ -179,6 +183,69 @@ ul.gallery li img
     /*overflow: hidden;*/
 }
 
+.contact-container
+{
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: var(--buttons);
+    border: 1px solid var(--divs);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/*h2*/
+/*{*/
+/*    text-align: center;*/
+/*    color: #76c7c0; !* Accent color *!*/
+/*}*/
+
+form label
+{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input, form textarea, form button
+{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: var(--text);
+}
+
+form input:focus, form textarea:focus
+{
+    border-color: var(--text-accent);
+    outline: none;
+}
+
+form button
+{
+    background: var(--text-accent);
+    color: var(--background);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover
+{
+    background: #5aa49f;
+}
+
+.success-message
+{
+    text-align: center;
+    color: #4caf50;
+    font-weight: bold;
+}
+
 @media (min-width: 480px)
 {
     header
@@ -187,14 +254,17 @@ ul.gallery li img
         min-height: 70px;
         margin-bottom: 0;
     }
+
     header::after
     {
         display: block;
     }
+
     h1
     {
         display: flex;
     }
+
     footer
     {
         font-size: 1rem;
@@ -208,23 +278,28 @@ ul.gallery li img
         /*position: fixed;*/
         padding: 10px 15px;
     }
+
     h1
     {
         font-size: 2rem;
     }
+
     main
     {
         margin-top: 160px;
     }
+
     ul.gallery
     {
         flex-direction: row;
     }
+
     ul.gallery li
     {
         width: auto;
         height: 95%;
     }
+
     ul.gallery li img
     {
         width: auto;

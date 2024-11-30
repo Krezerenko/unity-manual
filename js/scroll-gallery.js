@@ -26,6 +26,7 @@ function initializeScroll()
 function loopScroll()
 {
     let gap = parseInt(this.style.getPropertyValue("gap"));
+    if (isNaN(gap)) gap = 0;
     let width = this.scrollWidth + gap;
     let height = this.scrollHeight + gap;
     if (this.scrollLeft < width / 4)

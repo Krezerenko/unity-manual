@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Документация по Unity</title>
 
+    <link rel="icon" href="favicon.webp">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/quiz.css">
@@ -12,7 +13,7 @@
 </head>
 <body>
 <header>
-    <h1>Документация по Unity</h1>
+    <h1>Викторины по Unity</h1>
     <nav>
         <a href="index.html"><img src="favicon.webp" alt="Логотип сайта"></a>
         <div class="navbar">
@@ -33,7 +34,7 @@
 <main>
     <div class="quiz-container">
         <h2>Викторина по Unity</h2>
-        <form id="quiz-form" data-questions-amount="5">
+        <form id="quiz-form">
             <div class="question" data-answer="c">
                 <p>1. На каком языке пишутся скрипты для Unity?</p>
                 <div class="answers">
@@ -43,46 +44,49 @@
                     <label><input type="radio" name="q1" value="d"> C++</label>
                 </div>
             </div>
-            <div class="question" data-answer="c">
-                <p>2. На каком языке пишутся скрипты для Unity?</p>
+            <div class="question" data-answer="a">
+                <p>2. Какой компонент используется для проигрывания звуков в Unity?</p>
                 <div class="answers">
-                    <label><input type="radio" name="q2" value="a"> Java</label>
-                    <label><input type="radio" name="q2" value="b"> Python</label>
-                    <label><input type="radio" name="q2" value="c"> C#</label>
-                    <label><input type="radio" name="q2" value="d"> C++</label>
+                    <label><input type="radio" name="q2" value="a"> Audio Source</label>
+                    <label><input type="radio" name="q2" value="b"> Audio Listener</label>
+                    <label><input type="radio" name="q2" value="c"> Audio Mixer</label>
+                    <label><input type="radio" name="q2" value="d"> Audio Manager</label>
+                </div>
+            </div>
+            <div class="question" data-answer="b">
+                <p>3. Какой метод вызывается каждый кадр в MonoBehaviour скриптах?</p>
+                <div class="answers">
+                    <label><input type="radio" name="q3" value="a"> OnValidate()</label>
+                    <label><input type="radio" name="q3" value="b"> Update()</label>
+                    <label><input type="radio" name="q3" value="c"> FixedUpdate()</label>
+                    <label><input type="radio" name="q3" value="d"> OnFrame()</label>
                 </div>
             </div>
             <div class="question" data-answer="c">
-                <p>3. На каком языке пишутся скрипты для Unity?</p>
+                <p>4. Какой компонент используется для создания триггеров в Unity?</p>
                 <div class="answers">
-                    <label><input type="radio" name="q3" value="a"> Java</label>
-                    <label><input type="radio" name="q3" value="b"> Python</label>
-                    <label><input type="radio" name="q3" value="c"> C#</label>
-                    <label><input type="radio" name="q3" value="d"> C++</label>
+                    <label><input type="radio" name="q4" value="a"> Rigidbody</label>
+                    <label><input type="radio" name="q4" value="b"> Box Collider</label>
+                    <label><input type="radio" name="q4" value="c"> Collider</label>
+                    <label><input type="radio" name="q4" value="d"> Trigger</label>
                 </div>
             </div>
-            <div class="question" data-answer="c">
-                <p>4. На каком языке пишутся скрипты для Unity?</p>
+            <div class="question" data-answer="a">
+                <p>5. Как называется инструмент Unity для настройки переходов анимаций?</p>
                 <div class="answers">
-                    <label><input type="radio" name="q4" value="a"> Java</label>
-                    <label><input type="radio" name="q4" value="b"> Python</label>
-                    <label><input type="radio" name="q4" value="c"> C#</label>
-                    <label><input type="radio" name="q4" value="d"> C++</label>
-                </div>
-            </div>
-            <div class="question" data-answer="c">
-                <p>5. На каком языке пишутся скрипты для Unity?</p>
-                <div class="answers">
-                    <label><input type="radio" name="q5" value="a"> Java</label>
-                    <label><input type="radio" name="q5" value="b"> Python</label>
-                    <label><input type="radio" name="q5" value="c"> C#</label>
-                    <label><input type="radio" name="q5" value="d"> C++</label>
+                    <label><input type="radio" name="q5" value="a"> Animator Controller</label>
+                    <label><input type="radio" name="q5" value="b"> Animation Timeline</label>
+                    <label><input type="radio" name="q5" value="c"> Animation State Machine</label>
+                    <label><input type="radio" name="q5" value="d"> Animation Clip Editor</label>
                 </div>
             </div>
 
-            <button type="button" class="btn" onclick="submitQuiz.call(this)">Ответить</button>
+            <button type="button" class="btn">Ответить</button>
         </form>
-        <div class="result" id="result"></div>
+        <div class="result">
+            <div class="score"></div>
+            <div class="cheer"></div>
+        </div>
     </div>
 </main>
 <footer>

@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Обратная связь</title>
+
+    <link rel="icon" href="favicon.webp">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/nav.css">
+    <script src="js/feedback-form.js"></script>
 </head>
 <body>
 <header>
@@ -28,24 +31,25 @@
     </nav>
 </header>
 <main>
-    <h2>Ваши отзывы важны для нас!</h2>
-    <p>Здесь вы можете описать ваши предложения по улучшению сайта или написать об ошибке.</p>
-    <form class="code-snippet-1" action="#" method="POST">
-        <p>
-            <label for="name">Ваше имя:</label>
-            <input type="text" id="name" name="name" required>
-        </p>
+    <div class="contact-container">
+        <h2>Свяжитесь с нами</h2>
+        <p>Здесь вы можете написать ваши предложения и поправления.</p>
+        <form id="contact-form">
+            <label for="name">Ваше имя</label>
+            <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
 
-        <p>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </p>
+            <label for="email">Ваш email</label>
+            <input type="email" id="email" name="email" placeholder="Введите ваше почту" required>
 
-        <p><label for="message">Сообщение:</label></p>
-        <p><textarea id="message" name="message" rows="4" required></textarea></p>
+            <label for="message">Ваше сообщение</label>
+            <textarea id="message" name="message" rows="5" placeholder="Напишите здесь ваше сообщение..." required></textarea>
 
-        <button type="submit">Отправить</button>
-    </form>
+            <button type="submit">Отправить сообщение</button>
+        </form>
+        <div class="success-message" id="success-message" style="display: none;">
+            Спасибо! Ваше сообщение было отправлено.
+        </div>
+    </div>
 </main>
 <footer>
     <a href="feedback.html">Помогите улучшить сайт!</a>

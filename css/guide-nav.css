@@ -1,0 +1,61 @@
+nav
+{
+    --contents-table-width: 300px;
+}
+
+nav .contents-table
+{
+    --contents-table-width-new: calc(min(var(--contents-table-width), 100% - var(--dropdown-width) - 30px));
+
+    position: fixed;
+    background-color: var(--buttons);
+    top: 0;
+    left: calc(var(--contents-table-width-new) * (-1));
+    width: var(--contents-table-width-new);
+    height: 100%;
+
+    transition: left 1s var(--exp-ease);
+}
+
+nav .contents-table:hover
+{
+    left: 0;
+}
+
+nav .contents-table>.btn
+{
+    position: absolute;
+    left: 100%;
+    top: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    background-color: var(--link);
+    border-radius: 0 10px 10px 0;
+}
+nav .contents-table>.btn svg
+{
+    transform: rotateZ(0deg);
+
+    transition: transform 1s var(--exp-ease);
+}
+nav .contents-table:hover>.btn svg
+{
+    transform: rotateZ(180deg);
+}
+
+nav .contents-table ul
+{
+
+}
+
+nav .contents-table ul li
+{
+
+}
+
+nav .contents-table ul .btn
+{
+
+}
