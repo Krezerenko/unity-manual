@@ -12,7 +12,9 @@ nav .contents-table
     top: 0;
     left: calc(var(--contents-table-width-new) * (-1));
     width: var(--contents-table-width-new);
+    padding: 0;
     height: 100%;
+    text-align: left;
 
     transition: left 1s var(--exp-ease);
 }
@@ -45,17 +47,38 @@ nav .contents-table:hover>.btn svg
     transform: rotateZ(180deg);
 }
 
+nav .contents-table a
+{
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text);
+}
+
 nav .contents-table ul
 {
-
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0;
 }
 
 nav .contents-table ul li
 {
-
+    padding-left: 20px;
+    margin: 0;
 }
 
 nav .contents-table ul .btn
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+nav .contents-table ul .btn svg
 {
 
 }
