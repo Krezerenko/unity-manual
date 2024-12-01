@@ -7,7 +7,7 @@ nav
     /*top: 0;*/
 }
 
-nav>a
+nav > a
 {
     position: fixed;
     left: 15px;
@@ -15,7 +15,7 @@ nav>a
     width: 60px;
 }
 
-nav>a img
+nav > a img
 {
     background-color: var(--background);
     border-radius: 10px;
@@ -26,7 +26,7 @@ nav>a img
     transition: transform 0.5s var(--exp-ease);
 }
 
-nav>a img:hover
+nav > a img:hover
 {
     transform: scale(1.1, 1.1);
 }
@@ -142,10 +142,21 @@ h2
     position: relative;
 }
 
-.anchor
+/*.anchor*/
+/*{*/
+/*    display: block;*/
+/*    position: relative;*/
+/*    top: 80px;*/
+/*    visibility: hidden;*/
+/*}*/
+
+[id]::before
 {
-    position: absolute;
-    top: 80px;
+    content: "";
+    display: block;
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
 }
 
 @media (min-width: 767px)
@@ -161,16 +172,19 @@ h2
         height: 100%;
         transition: none, none;
     }
+
     nav .navbar:hover
     {
         width: 100%;
         height: 100%;
     }
+
     nav .navbar .btn
     {
         visibility: hidden;
         opacity: 0;
     }
+
     nav .navbar ul
     {
         position: static;
@@ -189,11 +203,13 @@ h2
 
         transition: none, none;
     }
+
     nav .navbar:hover ul
     {
         background-color: var(--divs);
         opacity: 100%;
     }
+
     nav .navbar ul li
     {
         /*padding: 10px;*/
@@ -202,17 +218,20 @@ h2
 
         transition: background-color 0.5s var(--exp-ease);
     }
+
     nav .navbar ul li:hover
     {
         background-color: var(--buttons);
     }
+
     nav .navbar ul li a
     {
         padding: 10px;
     }
 
-    .anchor
+    [id]::before
     {
-        top: 160px;
+        height: 180px;
+        margin-top: -180px;
     }
 }

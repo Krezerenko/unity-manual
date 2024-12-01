@@ -18,11 +18,14 @@ nav .contents-table
 
     transition: left 1s var(--exp-ease);
 }
-
 nav .contents-table:hover
 {
     left: 0;
 }
+/*nav .contents-table.closed*/
+/*{*/
+/*    left: calc(var(--contents-table-width-new) * (-1));*/
+/*}*/
 
 nav .contents-table>.btn
 {
@@ -33,7 +36,7 @@ nav .contents-table>.btn
     justify-content: center;
     align-items: center;
     height: 30px;
-    background-color: var(--link);
+    background-color: var(--buttons);
     border-radius: 0 10px 10px 0;
 }
 nav .contents-table>.btn svg
@@ -50,23 +53,47 @@ nav .contents-table:hover>.btn svg
 nav .contents-table a
 {
     text-decoration: none;
-    font-weight: 800;
+    font-size: 0.9rem;
+    font-weight: 700;
     text-transform: uppercase;
     color: var(--text);
 }
 
 nav .contents-table ul
 {
+    overflow: hidden;
+    position: relative;
     box-sizing: border-box;
     width: 100%;
+    height: auto;
     padding: 0;
+
+    transition: height 1s var(--exp-ease);
+}
+nav .contents-table ul.closed
+{
+    height: 0;
+    /*display: none;*/
 }
 
 nav .contents-table ul li
 {
-    padding-left: 20px;
+    position: relative;
+    padding-left: 30px;
     margin: 0;
 }
+
+/*nav .contents-table ul li>a*/
+/*{*/
+/*    display: block;*/
+/*    max-height: 50px;*/
+
+/*    transition: max-height 1s var(--exp-ease);*/
+/*}*/
+/*nav .contents-table ul.closed li>a*/
+/*{*/
+/*    max-height: 0;*/
+/*}*/
 
 nav .contents-table ul .btn
 {
@@ -76,9 +103,22 @@ nav .contents-table ul .btn
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-}
-nav .contents-table ul .btn svg
-{
+    height: 20px;
+    width: 30px;
+    cursor: pointer;
+    transform: rotateZ(90deg);
 
+    transition: transform 1s var(--exp-ease);
+}
+nav .contents-table ul .btn.closed
+{
+    transform: rotateZ(0deg);
+}
+
+@media (max-width: 767px)
+{
+    nav .contents-table.closed
+    {
+        left: calc(var(--contents-table-width-new) * (-1));
+    }
 }

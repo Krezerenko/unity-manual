@@ -131,7 +131,7 @@ footer a:hover
 main
 {
     flex-grow: 1;
-    padding: 20px;
+    padding: 20px 40px;
     margin-top: 80px;
 }
 
@@ -144,15 +144,23 @@ ul.gallery
     padding: 0;
     gap: 15px;
 }
-
 ul.gallery li
 {
     width: 95%;
 }
-
 ul.gallery li img
 {
     width: 100%;
+}
+ul.gallery li>a img
+{
+    transform: scale(1, 1);
+
+    transition: transform 1s var(--exp-ease);
+}
+ul.gallery li>a img:hover
+{
+    transform: scale(1.02, 1.02);
 }
 
 .scrollable
