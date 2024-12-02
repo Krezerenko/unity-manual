@@ -4,10 +4,14 @@ window.addEventListener("load", initGuideNav);
 
 let foldoutHeights = new Map;
 let currentFoldoutHeights = new Map;
+let contentsTable;
+
 function initGuideNav()
 {
-    let contentsTable = document.getElementsByClassName("contents-table")[0];
+    contentsTable = document.getElementsByClassName("contents-table")[0];
+    contentsTable.classList.add("closed");
     contentsTable.addEventListener("click", onFoldoutButtonClick);
+    window.document.body.addEventListener("click", onClick);
     // contentsTable.addEventListener();
     for (let element of contentsTable.getElementsByTagName("li"))
     {
@@ -19,7 +23,7 @@ function initGuideNav()
             "                    <path d=\"m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z\"/>\n" +
             "                </svg>";
         foldoutButton.classList.add("btn");
-        foldoutButton.classList.add("closed");
+        // foldoutButton.classList.add("closed");
 
         element.appendChild(foldoutButton);
     }
@@ -56,33 +60,43 @@ function onFoldoutButtonClick(event)
     let button = event.target.closest(".btn");
     if (!button) return;
 
-    let openContentsButton = button.parentElement
-    if (openContentsButton.classList[0] === "contents-table")
-    {
-        if (openContentsButton.classList.contains("closed"))
-        {
-            openContentsButton.classList.remove("closed");
-        }
-        else
-        {
-            openContentsButton.classList.add("closed");
-        }
-        return;
-    }
+    if (button.parentElement === contentsTable) return;
 
     let foldout = button.parentElement.children[1];
     if (foldout.classList.contains("closed"))
     {
-        button.classList.remove("closed");
         foldout.classList.remove("closed");
         adjustFoldoutsFromLeaf(foldout);
     }
     else
     {
-        button.classList.add("closed");
         foldout.classList.add("closed");
         foldout.style.removeProperty("height");
         currentFoldoutHeights.set(foldout, 0);
         adjustFoldoutsFromLeaf(foldout.parentElement.parentElement);
+    }
+}
+
+function onClick(event)
+{
+    let button = event.target.closest(".btn");
+    if (!button)
+    {
+        if (event.target.closest(".contents-table")) return;
+
+        contentsTable.classList.remove("closed");
+        return;
+    }
+
+    let buttonParent = button.parentElement;
+    if (buttonParent !== contentsTable) return;
+
+    if (buttonParent.classList.contains("closed"))
+    {
+        buttonParent.classList.remove("closed");
+    }
+    else
+    {
+        buttonParent.classList.add("closed");
     }
 }

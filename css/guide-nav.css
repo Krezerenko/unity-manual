@@ -1,4 +1,4 @@
-nav
+html
 {
     --contents-table-width: 300px;
 }
@@ -10,7 +10,7 @@ nav .contents-table
     position: fixed;
     background-color: var(--buttons);
     top: 0;
-    left: calc(var(--contents-table-width-new) * (-1));
+    left: 0;
     width: var(--contents-table-width-new);
     padding: 0;
     height: 100%;
@@ -18,14 +18,10 @@ nav .contents-table
 
     transition: left 1s var(--exp-ease);
 }
-nav .contents-table:hover
+nav .contents-table.closed
 {
-    left: 0;
+    left: calc(var(--contents-table-width-new) * (-1));
 }
-/*nav .contents-table.closed*/
-/*{*/
-/*    left: calc(var(--contents-table-width-new) * (-1));*/
-/*}*/
 
 nav .contents-table>.btn
 {
@@ -45,7 +41,7 @@ nav .contents-table>.btn svg
 
     transition: transform 1s var(--exp-ease);
 }
-nav .contents-table:hover>.btn svg
+nav .contents-table.closed>.btn svg
 {
     transform: rotateZ(180deg);
 }
@@ -66,7 +62,7 @@ nav .contents-table ul
     box-sizing: border-box;
     width: 100%;
     height: auto;
-    padding: 0;
+    padding: 0 10px 0 0;
 
     transition: height 1s var(--exp-ease);
 }
@@ -83,17 +79,17 @@ nav .contents-table ul li
     margin: 0;
 }
 
-/*nav .contents-table ul li>a*/
-/*{*/
-/*    display: block;*/
-/*    max-height: 50px;*/
+nav .contents-table ul li>a
+{
+    display: block;
+    max-height: 50px;
 
-/*    transition: max-height 1s var(--exp-ease);*/
-/*}*/
-/*nav .contents-table ul.closed li>a*/
-/*{*/
-/*    max-height: 0;*/
-/*}*/
+    transition: max-height 1s var(--exp-ease);
+}
+nav .contents-table ul.closed li>a
+{
+    max-height: 0;
+}
 
 nav .contents-table ul .btn
 {
@@ -110,15 +106,64 @@ nav .contents-table ul .btn
 
     transition: transform 1s var(--exp-ease);
 }
-nav .contents-table ul .btn.closed
+nav .contents-table ul.closed + .btn
 {
     transform: rotateZ(0deg);
 }
-
 @media (max-width: 767px)
 {
-    nav .contents-table.closed
+
+}
+@media (min-width: 767px)
+{
+    nav .contents-table
     {
         left: calc(var(--contents-table-width-new) * (-1));
+    }
+    nav .contents-table:hover
+    {
+        left: 0;
+    }
+    nav .contents-table>.btn
+    {
+        top: 30vh;
+    }
+    nav .contents-table>.btn svg
+    {
+        transform: rotateZ(0deg);
+    }
+    nav .contents-table:hover>.btn svg
+    {
+        transform: rotateZ(180deg);
+    }
+}
+
+@media (min-width: 1200px)
+{
+    header
+    {
+        left: var(--contents-table-width);
+        width: calc(100% - var(--contents-table-width));
+    }
+    nav>a
+    {
+        left: calc(var(--contents-table-width) + 15px);
+    }
+    main
+    {
+        margin-left: var(--contents-table-width);
+    }
+    footer
+    {
+        left: var(--contents-table-width);
+        width: calc(100% - var(--contents-table-width));
+    }
+    nav .contents-table, nav .contents-table.closed
+    {
+        left: 0;
+    }
+    nav .contents-table>.btn
+    {
+        display: none;
     }
 }
