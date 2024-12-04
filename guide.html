@@ -23,9 +23,9 @@
                 </svg>
             </div>
             <ul>
-                <li><a href="index.html">Вступление</a></li>
+                <li><a href="index.html">Главная</a></li>
                 <li><a href="guide.html">Гайд по разработке</a></li>
-                <li><a href="snippets.html">Сниппеты кода</a></li>
+                <li><a href="code.html">Полезный код</a></li>
                 <li><a href="quiz.html">Викторины</a></li>
             </ul>
         </div>
@@ -46,9 +46,10 @@
                         <li>
                             <a href="#section1.4">Интерфейс редактора Unity</a>
                             <ul>
-                                <li><a href="#section1.4.1">Инспектор</a></li>
-                                <li><a href="#section1.4.2">Иерархия</a></li>
-                                <li><a href="#section1.4.3">Проект</a></li>
+                                <li><a href="#section1.4.1">Сцена</a></li>
+                                <li><a href="#section1.4.2">Инспектор</a></li>
+                                <li><a href="#section1.4.3">Иерархия</a></li>
+                                <li><a href="#section1.4.4">Проект</a></li>
                             </ul>
                         </li>
                         <li><a href="#section1.5">Компонентная система</a></li>
@@ -59,8 +60,22 @@
                     <ul>
                         <li><a href="#section2.1">Создание проекта</a></li>
                         <li><a href="#section2.2">Организация сцены</a></li>
-                        <li><a href="#section2.3">Управление персонажем</a></li>
-                        <li><a href="#section2.4">Создание труб</a></li>
+                        <li><a href="#section2.3">Создание труб</a></li>
+                        <li>
+                            <a href="#section2.4">Персонаж</a>
+                            <ul>
+                                <li><a href="#section2.4.1">Управление</a></li>
+                                <li><a href="#section2.4.2">Смерть</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#section2.5">UI</a>
+                            <ul>
+                                <li><a href="#section2.5.1">Счетчик очков</a></li>
+                                <li><a href="#section2.5.2">Экран главного меню</a></li>
+                                <li><a href="#section2.5.3">Экран смерти</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -69,23 +84,167 @@
 </header>
 <main>
     <h2 id="section1">Начало</h2>
-    <h3 id="section1.1">Введение</h3>
-    <h3 id="section1.2">Установка Unity</h3>
-    <h3 id="section1.3">Среда разработки</h3>
-    <h3 id="section1.4">Интерфейс редактора Unity</h3>
-    <h3 id="section1.4.1">Инспектор</h3>
-    <h3 id="section1.4.2">Иерархия</h3>
-    <h3 id="section1.4.3">Проект</h3>
-    <h3 id="section1.5">Компонентная система</h3>
-    <h2 id="section2">Разработка игры Flappy Bird</h2>
-    <h3 id="section2.1">Создание проекта</h3>
-    <h3 id="section2.2">Организация сцены</h3>
-    <h3 id="section2.3">Управление персонажем</h3>
-    <h3 id="section2.4">Создание труб</h3>
 
+    <h3 id="section1.1">Введение</h3>
+    <p>Unity — это мощная платформа для разработки игр, которая позволяет создавать проекты для множества платформ: от
+        мобильных устройств до ПК и консолей. Основные преимущества Unity включают интуитивно понятный интерфейс,
+        поддержку 2D и 3D графики, богатую библиотеку инструментов и возможность интеграции пользовательских
+        скриптов.</p>
+
+    <h3 id="section1.2">Установка Unity</h3>
+    <p>Для начала работы с Unity необходимо установить Unity Hub, который служит менеджером версий редактора и позволяет
+        создавать проекты, устанавливать обновления и управлять лицензиями.</p>
+    <ol>
+        <li>Перейдите на <a href="https://unity.com">официальный сайт Unity</a>.</li>
+        <li>
+            <p>Скачайте и установите Unity Hub.</p>
+            <div class="hz"><img src="img/unity-install-1.png" alt="Первый шаг установки Unity Hub"></div>
+            <div class="hz"><img src="img/unity-install-2.png" alt="Второй шаг установки Unity Hub"></div>
+            <p>После нажатия кнопки <b>download</b> начнется скачивание установщика Unity Hub, требуется запустить
+                установщик, в нем пройдет пошаговый процесс установки.</p>
+            <div class="hz"><img src="img/unity-hub-1.png" alt="Интерфейс Unity Hub"></div>
+        </li>
+        <li>
+            <p>Через Unity Hub загрузите необходимую версию редактора Unity.</p>
+            <div class="hz"><img src="img/unity-hub-2.png" alt="Первый шаг установки редактора Unity"></div>
+            <div class="hz"><img src="img/unity-hub-3.png" alt="Второй шаг установки редактора Unity"></div>
+            <p>Если нет особенных ограничений разработки, безопаснее использовать рекомендованную версию редактора.
+                Это почти всегда будет поддерживаемая и самая безопасная версия.</p>
+        </li>
+    </ol>
+
+    <h3 id="section1.3">Среда разработки</h3>
+    <p>Все скрипты Unity написаны на языке C#, поэтому для написания кода требуется среда разработки, поддерживающая
+        этот язык программирования.</p>
+    <p>Для этого можно использовать <a href="https://visualstudio.microsoft.com/">Visual Studio</a>, она бесплатная.</p>
+    <div class="hz">
+        <img src="https://filestore.community.support.microsoft.com/api/images/39f0f8f8-a9eb-4215-a5e1-94b13dee66c8?upload=true"
+            alt="Интерфейс Visual Studio">
+    </div>
+    <p>Если вы будете использовать Visual Studio, Unity автоматически распознает её и дополнительной настройки не требуется.</p>
+    <p>В моем случае я буду использовать <a href="https://www.jetbrains.com/rider/">JetBrains Rider</a>, поэтому необходимо провести дополнительные действия</p>
+
+    <h3 id="section1.4">Интерфейс редактора Unity</h3>
+    <p>Основные элементы интерфейса:</p>
+
+    <h4 id="section1.4.1">Сцена</h4>
+    <p>Окно сцены отображает игровую зону, где размещаются объекты. Вы можете настраивать расположение и внешний вид
+        объектов с помощью инструментов перемещения, вращения и масштабирования.</p>
+
+    <h4 id="section1.4.2">Инспектор</h4>
+    <p>Инспектор отображает свойства выбранного объекта. Здесь можно изменять параметры компонентов и добавлять новые
+        скрипты.</p>
+
+    <h4 id="section1.4.3">Иерархия</h4>
+    <p>Окно иерархии отображает структуру объектов на сцене. Вы можете организовывать их в группы или изменять
+        порядок.</p>
+
+    <h4 id="section1.4.4">Проект</h4>
+    <p>Окно проекта отображает все файлы проекта, включая модели, текстуры, скрипты и другие ресурсы.</p>
+
+    <h3 id="section1.5">Компонентная система</h3>
+    <p>Unity основана на компонентной системе. Каждый объект на сцене называется GameObject и может содержать различные
+        компоненты, такие как рендеринг, физика и пользовательские скрипты.</p>
+
+    <h2 id="section2">Разработка игры Flappy Bird</h2>
+
+    <h3 id="section2.1">Создание проекта</h3>
+    <p>Для создания игры откройте Unity Hub, создайте новый 2D-проект и назовите его "Flappy Bird".</p>
+
+    <h3 id="section2.2">Организация сцены</h3>
+    <p>Создайте фон, добавьте игровой пол и установите границы экрана. Все элементы можно добавить с помощью объектов
+        типа Sprite и настроить их с помощью инспектора.</p>
+
+    <h3 id="section2.3">Создание труб</h3>
+    <p>Добавьте спрайты труб и настройте их позицию на сцене. Используйте скрипт для их автоматического перемещения и
+        удаления при выходе за границы экрана.</p>
+    <pre class="code-snippet-2"><code>using UnityEngine;
+
+public class PipeManager : MonoBehaviour
+{
+    [Header("Pipe Settings")]
+    public GameObject pipePrefab; // Префаб трубы
+    public float spawnInterval = 2f; // Интервал между появлением труб
+    public float pipeSpeed = 2f; // Скорость движения труб
+    public float pipeHeightRange = 1.5f; // Диапазон высоты трубы
+
+    [Header("Spawn Area")]
+    public float spawnX = 10f; // Позиция по X, где появляются трубы
+    public float destroyX = -10f; // Позиция по X, где трубы уничтожаются
+
+    private float timer; // Таймер для отслеживания интервала спавна
+
+    private void Update()
+    {
+        // Таймер для создания труб
+        timer += Time.deltaTime;
+        if (timer >= spawnInterval)
+        {
+            SpawnPipe();
+            timer = 0f;
+        }
+
+        // Передвижение труб
+        MovePipes();
+    }
+
+    private void SpawnPipe()
+    {
+        // Случайное смещение трубы по высоте
+        float randomHeight = Random.Range(-pipeHeightRange, pipeHeightRange);
+        Vector3 spawnPosition = new Vector3(spawnX, randomHeight, 0f);
+
+        // Создание трубы
+        Instantiate(pipePrefab, spawnPosition, Quaternion.identity);
+    }
+
+    private void MovePipes()
+    {
+        // Поиск всех объектов с тегом "Pipe"
+        GameObject[] pipes = GameObject.FindGameObjectsWithTag("Pipe");
+
+        foreach (GameObject pipe in pipes)
+        {
+            // Движение трубы влево
+            pipe.transform.position += Vector3.left * pipeSpeed * Time.deltaTime;
+
+            // Удаление трубы, если она вышла за пределы экрана
+            if (pipe.transform.position.x <= destroyX)
+            {
+                Destroy(pipe);
+            }
+        }
+    }
+}</code></pre>
+
+    <h3 id="section2.4">Персонаж</h3>
+
+    <h4 id="section2.4.1">Управление</h4>
+    <p>Создайте игровой объект для персонажа. Добавьте компонент Rigidbody2D и настройте управление прыжками через
+        пользовательский скрипт.</p>
+
+    <h4 id="section2.4.2">Смерть</h4>
+    <p>Реализуйте систему столкновений. Персонаж должен умирать при столкновении с трубами или выходе за границы
+        экрана.</p>
+
+    <h3 id="section2.5">UI</h3>
+
+    <h4 id="section2.5.1">Счетчик очков</h4>
+    <p>Добавьте текстовый элемент на сцену для отображения счета. Счет увеличивается при прохождении труб.</p>
+
+    <h4 id="section2.5.2">Экран главного меню</h4>
+    <p>Создайте экран для запуска игры с кнопками "Играть" и "Выход".</p>
+
+    <h4 id="section2.5.3">Экран смерти</h4>
+    <p>Добавьте экран, который появляется после проигрыша. На нем можно отобразить текущий счет и предложить начать
+        заново.</p>
 </main>
 <footer>
     <a href="feedback.html">Помогите улучшить сайт!</a>
+    <div class="hz">
+        <a href="https://unity.com/">Официальный сайт Unity</a>
+        <a href="https://docs.unity3d.com/">Документация Unity</a>
+    </div>
     <p>® Unity, логотип Unity и все связанные с ним названия, логотипы, названия продуктов и услуг, дизайн и лозунги
         являются зарегистрированными товарными знаками Unity Technologies или ее дочерних компаний.</p>
 </footer>

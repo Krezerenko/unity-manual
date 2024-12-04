@@ -85,6 +85,7 @@ function onClick(event)
         if (event.target.closest(".contents-table")) return;
 
         contentsTable.classList.remove("closed");
+        contentsTable.classList.add("closed");
         return;
     }
 

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полезные сниппеты кода для Unity</title>
+
+    <link rel="icon" href="favicon.webp">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/guide-nav.css">
+    <script src="js/guide-nav.js"></script>
+</head>
+<body>
+<header>
+    <h1>Полезные сниппеты кода для Unity</h1>
+    <nav>
+        <a href="index.html"><img src="favicon.webp" alt="Логотип сайта"></a>
+        <div class="navbar">
+            <div class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#ffffff">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                </svg>
+            </div>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="guide.html">Гайд по разработке</a></li>
+                <li><a href="code.html">Полезный код</a></li>
+                <li><a href="quiz.html">Викторины</a></li>
+            </ul>
+        </div>
+        <div class="contents-table">
+            <div class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                     fill="#ffffff">
+                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/>
+                </svg>
+            </div>
+            <ul>
+                <li>
+                    <a href="#snippets">Сниппеты</a>
+                    <ul>
+                        <li><a href="#snippet1">Перемещение объекта</a></li>
+                        <li><a href="#snippet2">Вращение объекта</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#patterns">Паттерны</a>
+                    <ul>
+                        <li><a href="#pattern1">Singleton</a></li>
+                        <li><a href="#pattern2">Factory Method</a></li>
+                        <li><a href="#pattern3">Observer</a></li>
+                        <li><a href="#pattern4">Strategy</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
+    <p>На данной странице вы можете найти полезный код, его объяснение и советы по правильному написанию качественного и
+        чистого кода.</p>
+    <h2 id="snippets">Сниппеты кода</h2>
+    <ul>
+        <li>
+            <h3 id="snippet1">Пример кода для перемещения объекта</h3>
+            <pre class="code-snippet-1"><code>using UnityEngine;
+
+public class MoveObject : MonoBehaviour
+{
+    public float speed = 5f;
+
+    void Update()
+    {
+        float move = Input.GetAxis("Horizontal");
+        transform.Translate(move * speed * Time.deltaTime, 0, 0);
+    }
+}</code></pre>
+            <p>Этот скрипт позволяет перемещать объект по оси X при нажатии клавиш стрелок или клавиш A/D.</p>
+        </li>
+
+        <li>
+            <h3 id="snippet2">Пример кода для вращения объекта</h3>
+            <pre class="code-snippet-1"><code>using UnityEngine;
+
+public class RotateObject : MonoBehaviour
+{
+    public float rotationSpeed = 50f;
+
+    void Update()
+    {
+        float rotation = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
+        transform.Rotate(0, rotation, 0);
+    }
+}</code></pre>
+            <p>Этот код будет вращать объект по оси Y в зависимости от ввода с клавиш стрелок или A/D.</p>
+        </li>
+    </ul>
+    <h2 id="patterns">Паттерны программирования</h2>
+    <p>Паттерны программирования — это общепринятые шаблоны проектирования кода, которые помогают решать часто
+        возникающие задачи.</p>
+    <ul>
+        <li>
+            <h3 id="pattern1">Singleton (Одиночка)</h3>
+            <p><strong>Описание:</strong> Этот паттерн гарантирует, что у класса будет только один экземпляр, и
+                предоставляет глобальную точку доступа к этому экземпляру.</p>
+            <h3>Пример:</h3>
+            <pre class="code-snippet-2"><code>public class Singleton {
+    private static Singleton _instance;
+
+    // Закрытый конструктор
+    private Singleton() { }
+
+    public static Singleton Instance {
+        get {
+            if (_instance == null) {
+                _instance = new Singleton();
+            }
+            return _instance;
+        }
+    }
+}</code></pre>
+            <p><strong>Примечание:</strong> Многие считают этот паттерн программирования "анти-паттерном", из-за того
+                что он вносит в код множество жестких зависимостей, от которых потом трудно или невозможно избавиться
+            </p>
+            <p><strong>Применение:</strong> Подходит для быстрой реализации и тестирования какой-нибудь простого
+                функционала. К примеру - менеджер звука, управляющий исполнением всех звуков на сцене. В дальнейшем его
+                можно заменить на паттерн Observer</p>
+        </li>
+        <li>
+            <h3 id="pattern2">Factory Method (Фабричный метод)</h3>
+            <p><strong>Описание:</strong> Паттерн позволяет создавать объекты без указания точного класса создаваемого
+                объекта.</p>
+            <h3>Пример:</h3>
+            <pre class="code-snippet-2"><code>public abstract class Product {
+    public abstract void Use();
+}
+
+public class ProductA : Product {
+    public override void Use() {
+        Console.WriteLine("Используется продукт A");
+    }
+}
+
+public class ProductB : Product {
+    public override void Use() {
+        Console.WriteLine("Используется продукт B");
+    }
+}
+
+public class Factory {
+    public static Product CreateProduct(string type) {
+        if (type == "A") return new ProductA();
+        if (type == "B") return new ProductB();
+        throw new ArgumentException("Неверный тип продукта");
+    }
+}</code></pre>
+            <p><strong>Применение:</strong> Используется, когда система должна быть независимой от способа создания
+                продуктов.</p>
+        </li>
+
+        <li>
+            <h3 id="pattern3">Observer (Наблюдатель)</h3>
+            <p><strong>Описание:</strong> Этот паттерн определяет зависимость "один ко многим", при которой изменение
+                состояния одного объекта оповещает все зависимые объекты.</p>
+            <h3>Пример:</h3>
+            <pre class="code-snippet-2"><code>using System;
+using System.Collections.Generic;
+
+public interface IObserver {
+    void Update(string message);
+}
+
+public class ConcreteObserver : IObserver {
+    private string _name;
+
+    public ConcreteObserver(string name) {
+        _name = name;
+    }
+
+    public void Update(string message) {
+        Console.WriteLine($"{_name} получил сообщение: {message}");
+    }
+}
+
+public class Subject {
+    private List&ltIObserver> _observers = new List&ltIObserver>();
+
+    public void AddObserver(IObserver observer) {
+        _observers.Add(observer);
+    }
+
+    public void NotifyObservers(string message) {
+        foreach (var observer in _observers) {
+            observer.Update(message);
+        }
+    }
+}</code></pre>
+            <p><strong>Применение:</strong> Используется в системах, где важно уведомлять множество объектов о событиях,
+                например, в интерфейсах или событиях в играх.</p>
+        </li>
+
+        <li>
+            <h3 id="pattern4">Strategy (Стратегия)</h3>
+            <p><strong>Описание:</strong> Паттерн определяет семейство алгоритмов, инкапсулирует их и делает
+                взаимозаменяемыми.</p>
+            <h3>Пример:</h3>
+            <pre class="code-snippet-2"><code>public interface IStrategy {
+    void Execute();
+}
+
+public class StrategyA : IStrategy {
+    public void Execute() {
+        Console.WriteLine("Выполняется стратегия A");
+    }
+}
+
+public class StrategyB : IStrategy {
+    public void Execute() {
+        Console.WriteLine("Выполняется стратегия B");
+    }
+}
+
+public class Context {
+    private IStrategy _strategy;
+
+    public void SetStrategy(IStrategy strategy) {
+        _strategy = strategy;
+    }
+
+    public void ExecuteStrategy() {
+        _strategy.Execute();
+    }
+}</code></pre>
+            <p><strong>Применение:</strong> Подходит для реализации различных алгоритмов, которые могут переключаться в
+                зависимости от контекста.</p>
+        </li>
+    </ul>
+</main>
+<footer>
+    <a href="feedback.html">Помогите улучшить сайт!</a>
+    <div class="hz">
+        <a href="https://unity.com/">Официальный сайт Unity</a>
+        <a href="https://docs.unity3d.com/">Документация Unity</a>
+    </div>
+    <p>® Unity, логотип Unity и все связанные с ним названия, логотипы, названия продуктов и услуг, дизайн и лозунги
+        являются зарегистрированными товарными знаками Unity Technologies или ее дочерних компаний.</p>
+</footer>
+</body>
+</html>

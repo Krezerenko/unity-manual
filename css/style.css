@@ -135,6 +135,21 @@ main
     margin-top: 80px;
 }
 
+.hz
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+main .hz img
+{
+    margin: auto;
+    max-width: 95%;
+}
+
 ul.gallery
 {
     position: relative;
@@ -143,6 +158,7 @@ ul.gallery
     align-items: center;
     padding: 0;
     gap: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 ul.gallery li
 {
@@ -151,6 +167,7 @@ ul.gallery li
 ul.gallery li img
 {
     width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 ul.gallery li>a img
 {
@@ -186,9 +203,37 @@ ul.gallery li>a img:hover
     background-color: var(--buttons);
     padding: 10px;
     border-radius: 10px;
-    border: 5px solid var(--popups);
+    border: 3px solid var(--popups);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     /*max-width: 100%;*/
     /*overflow: hidden;*/
+}
+
+.code-snippet-2
+{
+    overflow: scroll;
+    scrollbar-width: none;
+    background: linear-gradient(135deg, #1e1e1e, #252526); /* Градиентный темный фон */
+    color: #e6e6e6; /* Почти белый текст */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.code-snippet-3
+{
+    overflow: scroll;
+    scrollbar-width: none;
+    background-color: #2d2d2d; /* Темно-серый фон */
+    color: #cccccc; /* Светло-серый текст */
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .contact-container
