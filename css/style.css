@@ -272,6 +272,13 @@ form input, form textarea, form button
     color: var(--text);
 }
 
+form textarea
+{
+    resize: vertical;
+    max-height: 300px;
+    scrollbar-width: none;
+}
+
 form input:focus, form textarea:focus
 {
     border-color: var(--text-accent);

@@ -37,13 +37,13 @@ nav .contents-table>.btn
 }
 nav .contents-table>.btn svg
 {
-    transform: rotateZ(0deg);
+    transform: rotateZ(180deg);
 
     transition: transform 1s var(--exp-ease);
 }
 nav .contents-table.closed>.btn svg
 {
-    transform: rotateZ(180deg);
+    transform: rotateZ(0deg);
 }
 
 nav .contents-table a
@@ -110,11 +110,14 @@ nav .contents-table ul.closed + .btn
 {
     transform: rotateZ(0deg);
 }
-@media (max-width: 767px)
-{
-
-}
 @media (min-width: 767px)
+{
+    nav .contents-table>.btn
+    {
+        top: 30vh;
+    }
+}
+@media (hover: hover)
 {
     nav .contents-table
     {
@@ -123,10 +126,6 @@ nav .contents-table ul.closed + .btn
     nav .contents-table:hover
     {
         left: 0;
-    }
-    nav .contents-table>.btn
-    {
-        top: 30vh;
     }
     nav .contents-table>.btn svg
     {

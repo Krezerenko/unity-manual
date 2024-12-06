@@ -9,7 +9,6 @@ function initQuiz()
 
 function submitQuiz()
 {
-    // console.log(this);
     let questions = this.getElementsByClassName("question");
     let questionAmount = questions.length;
     let score = 0;
@@ -52,12 +51,10 @@ function submitQuiz()
 
 function onAnswerCheck(event)
 {
-    // console.log(event.target);
     if (event.target.checked)
     {
         for (const label of event.target.parentElement.parentElement.children)
         {
-            // console.log(label.children[0]);
             if (label.children[0] === event.target) continue;
             label.classList.remove("right");
             label.classList.remove("wrong");

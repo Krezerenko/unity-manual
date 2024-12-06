@@ -1,18 +1,31 @@
 // Выпадающее меню навигации по разделам в руководстве
 
-window.addEventListener("load", initGuideNav);
-
 let foldoutHeights = new Map;
 let currentFoldoutHeights = new Map;
 let contentsTable;
+let searchTimer;
+
+window.addEventListener("load", () =>
+{
+    if (contentsTable) return;
+    clearTimeout(searchTimer);
+    contentsTable = document.getElementsByClassName("contents-table")[0];
+    if (contentsTable) initGuideNav();
+});
+findFoldout();
+
+function findFoldout()
+{
+    contentsTable = document.getElementsByClassName("contents-table")[0];
+    if (!contentsTable) searchTimer = setTimeout(findFoldout, 20);
+    else initGuideNav();
+}
 
 function initGuideNav()
 {
-    contentsTable = document.getElementsByClassName("contents-table")[0];
     contentsTable.classList.add("closed");
     contentsTable.addEventListener("click", onFoldoutButtonClick);
     window.document.body.addEventListener("click", onClick);
-    // contentsTable.addEventListener();
     for (let element of contentsTable.getElementsByTagName("li"))
     {
         if (element.getElementsByTagName("ul").length === 0) continue
@@ -23,7 +36,6 @@ function initGuideNav()
             "                    <path d=\"m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z\"/>\n" +
             "                </svg>";
         foldoutButton.classList.add("btn");
-        // foldoutButton.classList.add("closed");
 
         element.appendChild(foldoutButton);
     }
