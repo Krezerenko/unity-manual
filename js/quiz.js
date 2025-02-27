@@ -61,3 +61,8 @@ function onAnswerCheck(event)
         }
     }
 }
+
+function someNewFunction1()
+{
+    doSomething();
+}
