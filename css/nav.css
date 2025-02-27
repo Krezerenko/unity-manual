@@ -142,6 +142,14 @@ h2
     position: relative;
 }
 
+/*.anchor*/
+/*{*/
+/*    display: block;*/
+/*    position: relative;*/
+/*    top: 80px;*/
+/*    visibility: hidden;*/
+/*}*/
+
 [id]::before
 {
     content: "";

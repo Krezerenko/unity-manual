@@ -49,8 +49,6 @@ function initGuideNav()
     }
 }
 
-// Эта функция подправляет высоту выпадающего меню
-
 function adjustFoldoutsFromLeaf(foldout)
 {
     while (foldout)
